@@ -14,8 +14,11 @@
 
     {{-- Section Body --}}
     <div class="section-body">
+        <div class="d-flex justify-content-end mb-2">
+            <a href="#" class="btn btn-icon icon-left btn-primary"><i class="ion-printer"></i> Print</a>
+        </div>
         <div class="row justify-content-center">
-            <div class="col-8">
+            <div class="col">
                 <div class="card">
                     <div class="card-body">
                         <tbody>
