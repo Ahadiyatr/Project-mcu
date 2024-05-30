@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\DatakaryawanController;
 use App\Http\Controllers\DatamcuController;
 use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\InsertController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\TempatmcuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +64,17 @@ Route::get('/pengguna', function () {
 })->name('pengguna');
 
 // menu master
+
+Route::get('/karyawan', [DatakaryawanController::class, 'index'])->name('karyawan');
+
+// Route::get('/tempat-mcu', function () {
+//     return view('master.tempat-mcu');
+// })->name('tempat-mcu');
+Route::get('/tempatmcu', [TempatmcuController::class, 'index'])->name('tempatmcu');
+// Route::get('/tambahjabatan', [JabatanController::class, 'tambahjabatan'])->name('tambahjabatan');
+// Route::post('/insertjabatan', [JabatanController::class, 'insertjabatan'])->name('insertjabatan');
+
+
 Route::get('/jabatan', [JabatanController::class, 'index'])->name('jabatan');
 Route::get('/tambahjabatan', [JabatanController::class, 'tambahjabatan'])->name('tambahjabatan');
 Route::post('/insertjabatan', [JabatanController::class, 'insertjabatan'])->name('insertjabatan');

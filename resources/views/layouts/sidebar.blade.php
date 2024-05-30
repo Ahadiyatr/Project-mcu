@@ -27,7 +27,9 @@
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="ion-ios-medkit"></i><span>Master</span></a>
                   <ul class="dropdown-menu">
-                    <li><a class="nav-link" href=" {{ url('/perusahaan')}} ">Tambah Perusahaan</a></li>
+                    <li><a class="nav-link" href=" {{ url('/karyawan')}} ">Karyawan</a></li>
+                    <li><a class="nav-link" href=" {{ url('/perusahaan')}} ">Perusahaan</a></li>
+                    <li><a class="nav-link" href=" {{ url('/tempatmcu')}} ">Tempat MCU</a></li>
                     <li><a class="nav-link" href=" {{ url('/departemen')}} ">Departemen</a></li>
                     <li><a class="nav-link" href=" {{ url('/jabatan')}} ">Jabatan</a></li>
                 </ul>
