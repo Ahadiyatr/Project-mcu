@@ -10,19 +10,17 @@
     <div class="section-header">
         <h1>Data Departemen</h1>
     </div>
+    <div class="buttons">
+        <a href="{{ url('/tambahdepartemen') }}" class="btn btn-primary">Tambah Data</a>
+    </div>
     {{-- ./ Header Page--}}
 
     {{-- Section Body --}}
     <div class="section-body">
-        <h2 class="section-title">Table</h2>
-        <p class="section-lead">Example of some Bootstrap table components.</p>
 
         <div class="row justify-content-center">
           <div class="col-8">
             <div class="card">
-                <div class="buttons">
-                    <a href="{{ url('/tambahdepartemen') }}" class="btn btn-primary">Tambah Data</a>
-                </div>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
                         {{ $message}}

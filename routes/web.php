@@ -5,6 +5,7 @@ use App\Http\Controllers\DatamcuController;
 use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\InsertController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\TempatmcuController;
 use Illuminate\Support\Facades\Route;
 
@@ -63,18 +64,28 @@ Route::get('/pengguna', function () {
     return view('pengguna');
 })->name('pengguna');
 
-// menu master
-
+// Menu Master
+// Data Karyawan
 Route::get('/karyawan', [DatakaryawanController::class, 'index'])->name('karyawan');
 
-// Route::get('/tempat-mcu', function () {
-//     return view('master.tempat-mcu');
-// })->name('tempat-mcu');
+// Perusahaan
+Route::get('/perusahaan', [PerusahaanController::class, 'index'])->name('perusahaan');
+Route::get('/tambahperusahaan', [PerusahaanController::class, 'tambahperusahaan'])->name('tambahperusahaan');
+Route::post('/insertperusahaan', [PerusahaanController::class, 'insertperusahaan'])->name('insertperusahaan');
+
+Route::get('/show-perusahaan/{id}', [PerusahaanController::class, 'show'])->name('show-perusahaan');
+Route::post('/update-perusahaan/{id}', [PerusahaanController::class, 'update'])->name('update-perusahaan');
+Route::get('/delete-perusahaan/{id}', [PerusahaanController::class, 'delete'])->name('delete-perusahaan');
+// Route::get('/tambahperusahaan', function () {
+//     return view('master.tambahperusahaan');
+// })->name('tambahperusahaan');
+
+// Tempat MCU
 Route::get('/tempatmcu', [TempatmcuController::class, 'index'])->name('tempatmcu');
 // Route::get('/tambahjabatan', [JabatanController::class, 'tambahjabatan'])->name('tambahjabatan');
 // Route::post('/insertjabatan', [JabatanController::class, 'insertjabatan'])->name('insertjabatan');
 
-
+// Jabatan
 Route::get('/jabatan', [JabatanController::class, 'index'])->name('jabatan');
 Route::get('/tambahjabatan', [JabatanController::class, 'tambahjabatan'])->name('tambahjabatan');
 Route::post('/insertjabatan', [JabatanController::class, 'insertjabatan'])->name('insertjabatan');
@@ -83,6 +94,7 @@ Route::get('/show-jabatan/{id}', [JabatanController::class, 'show'])->name('show
 Route::post('/update-jabatan/{id}', [JabatanController::class, 'update'])->name('update-jabatan');
 Route::get('/delete-jabatan/{id}', [JabatanController::class, 'delete'])->name('delete-jabatan');
 
+// Departemen
 Route::get('/departemen', [DepartemenController::class, 'index'])->name('departemen');
 Route::get('/tambahdepartemen', [DepartemenController::class, 'tambahdepartemen'])->name('tambahdepartemen');
 Route::post('/insertdepartemen', [DepartemenController::class, 'insertdepartemen'])->name('insertdepartemen');
@@ -90,10 +102,6 @@ Route::post('/insertdepartemen', [DepartemenController::class, 'insertdepartemen
 Route::get('/show-departemen/{id}', [DepartemenController::class, 'show'])->name('show-departemen');
 Route::post('/update-departemen/{id}', [DepartemenController::class, 'update'])->name('update-departemen');
 Route::get('/delete-departemen/{id}', [DepartemenController::class, 'delete'])->name('delete-departemen');
-
-Route::get('/perusahaan', function () {
-    return view('master.perusahaan');
-})->name('perusahaan');
 
 // Route::get('/departemen', function () {
 //     return view('master.departemen');

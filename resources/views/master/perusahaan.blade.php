@@ -10,36 +10,51 @@
     <div class="section-header">
         <h1>Data Perusahaan</h1>
     </div>
+    <div class="buttons">
+        <a href="{{ url('/tambahperusahaan') }}" class="btn btn-primary">Tambah Data Perusahaan</a>
+    </div>
     {{-- ./ Header Page--}}
 
     {{-- Section Body --}}
     <div class="section-body">
-        <h2 class="section-title">Table</h2>
-        <p class="section-lead">Example of some Bootstrap table components.</p>
 
-        <div class="row">
-          <div class="col-12">
+        <div class="row justify-content-center">
+          <div class="col-8">
             <div class="card">
+                {{-- @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        {{ $message}}
+                    </div>
+                @endif --}}
               <div class="card-header">
-                <h4>Simple Table</h4>
+                <h4>Tabel Perusahaan</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-bordered table-md">
-                    <tr>
-                      <th>No</th>
-                      <th>Nama Perusahaan</th>
-                      <th>Action</th>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Irwansyah Saputra</td>
-                      <td>
-                        <a href="#" class="btn btn-secondary">Detail</a>
-                        <a href="#" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
-                        <a href="#" class="btn btn-icon btn-danger"><i class="fas fa-times"></i></a>
-                    </td>
-                    </tr>
+                    <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Nama Perusahaan</th>
+                          <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php
+                            $no = 1;
+                        @endphp
+                        @foreach ($perusahaan as $pt)
+                            <tr>
+                            <td scope="row"> {{ $no++ }} </td>
+                            <td> {{ $pt->perusahaan}} </td>
+                            <td>
+                                <a href="#" class="btn btn-secondary">Detail</a>
+                                <a href="/show-perusahaan/{{ $pt->id }}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                                <a href="/delete-perusahaan/{{ $pt->id }}" class="btn btn-icon btn-danger"><i class="fas fa-times"></i></a>
+                            </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
                   </table>
                 </div>
               </div>
