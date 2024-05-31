@@ -16,5 +16,11 @@ class Departemen extends Model
         return $this->hasMany(datamcu::class);
     }
 
+    public function datakaryawan(){
+        return $this->hasMany(datakaryawan::class);
+    }
+
     protected $guarded = [];
+
+
 }

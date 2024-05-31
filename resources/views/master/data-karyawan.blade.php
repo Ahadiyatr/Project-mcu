@@ -48,9 +48,9 @@
                         <td scope="row"> {{ $no++ }}</td>
                         <td scope="row"> {{$karyawan->nik_karyawan}} </td>
                         <td scope="row"> {{$karyawan->nama_karyawan}} </td>
-                        <td scope="row"> {{$karyawan->perusahaan_id}} </td>
-                        <td scope="row"> {{$karyawan->departemen_id}} </td>
-                        <td scope="row"> {{$karyawan->jabatan_id}} </td>
+                        <td scope="row"> {{$karyawan->perusahaan->perusahaan}} </td>
+                        <td scope="row"> {{$karyawan->departemen->departemen}} </td>
+                        <td scope="row"> {{$karyawan->jabatan->jabatan}} </td>
                         <td scope="row"> {{$karyawan->tanggal_lhr}} </td>
                         <td scope="row"> {{$karyawan->jenis_kelamin}} </td>
                         <td><a href="#" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a></td>

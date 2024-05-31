@@ -21,4 +21,16 @@ class Datakaryawan extends Model
     'jenis_kelamin',
     'tanggal_lhr'
     ];
+
+    public function departemen(){
+        return $this->belongsTo(Departemen::class);
+    }
+
+    public function jabatan(){
+        return $this->belongsTo(Jabatan::class);
+    }
+
+    public function perusahaan(){
+        return $this->belongsTo(Perusahaan::class);
+    }
 }

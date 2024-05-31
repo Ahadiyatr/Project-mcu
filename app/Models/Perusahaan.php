@@ -13,4 +13,8 @@ class Perusahaan extends Model
     protected $primaryKey = "id";
     protected $fillable = ['id','perusahaan'];
 
+    public function datakaryawan(){
+        return $this->hasMany(datakaryawan::class);
+    }
+
 }

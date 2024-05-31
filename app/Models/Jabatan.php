@@ -19,5 +19,10 @@ class Jabatan extends Model
         return $this->hasMany(Jabatan::class);
     }
 
+    public function datakaryawan()
+    {
+        return $this->hasMany(Jabatan::class);
+    }
+
     protected $guarded = [];
 }
