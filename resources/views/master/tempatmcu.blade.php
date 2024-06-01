@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Jabatan')
+@section('title','Tempat-MCU')
 
 @section('content')
 
@@ -11,7 +11,7 @@
         <h1>Data Tempat MCU</h1>
     </div>
     <div class="buttons">
-        <a href="{{ url('/tambahjabatan') }}" class="btn btn-primary">Tambah Data</a>
+        <a href="{{ url('/tambahtempat') }}" class="btn btn-primary">Tambah Data Tempat MCU</a>
     </div>
     {{-- ./ Header Page--}}
 
@@ -20,11 +20,11 @@
         <div class="row justify-content-center">
           <div class="col-8">
             <div class="card">
-                @if ($message = Session::get('success'))
+                {{-- @if ($message = Session::get('success'))
                     <div class="alert alert-success">
                         {{ $message}}
                     </div>
-                @endif
+                @endif --}}
               <div class="card-header">
                 <h4>Tabel Data MCU</h4>
               </div>
@@ -48,8 +48,8 @@
                             <td> {{ $tmcu->tempat}} </td>
                             <td>
                                 <a href="#" class="btn btn-secondary">Detail</a>
-                                <a href="#" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
-                                <a href="#" class="btn btn-icon btn-danger"><i class="fas fa-times"></i></a>
+                                <a href="/show-tempat/{{ $tmcu->id }}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                                <a href="/delete-tempat/{{ $tmcu->id }}" class="btn btn-icon btn-danger"><i class="fas fa-times"></i></a>
                             </td>
                             </tr>
                         @endforeach

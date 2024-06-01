@@ -82,6 +82,19 @@ Route::get('/delete-perusahaan/{id}', [PerusahaanController::class, 'delete'])->
 
 // Tempat MCU
 Route::get('/tempatmcu', [TempatmcuController::class, 'index'])->name('tempatmcu');
+Route::get('/tambahtempat', [TempatmcuController::class, 'tambahtempat'])->name('tambahtempat');
+Route::post('/insert-tempat', [TempatmcuController::class, 'inserttempat'])->name('insert-tempat');
+
+Route::get('/show-tempat/{id}', [TempatmcuController::class, 'show'])->name('show-tempat');
+Route::post('/update-tempat/{id}', [TempatmcuController::class, 'update'])->name('update-tempat');
+Route::get('/delete-tempat/{id}', [TempatmcuController::class, 'delete'])->name('delete-tempat');
+
+
+// Route::get('/tambahklinik', function () {
+//     return view('master.tambahklinik');
+// })->name('tambahklinik');
+
+
 // Route::get('/tambahjabatan', [JabatanController::class, 'tambahjabatan'])->name('tambahjabatan');
 // Route::post('/insertjabatan', [JabatanController::class, 'insertjabatan'])->name('insertjabatan');
 

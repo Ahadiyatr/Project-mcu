@@ -24,7 +24,6 @@ class JabatanController extends Controller
     }
 
     public function show($id){
-
         $jabatan = Jabatan::find($id);
         // dd($jabatan);
         return view('master.jabatan-update',compact('jabatan'));
