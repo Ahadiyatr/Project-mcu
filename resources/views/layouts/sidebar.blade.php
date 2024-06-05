@@ -15,7 +15,8 @@
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="ion-ios-medkit"></i><span>MCU</span></a>
                   <ul class="dropdown-menu">
-                    <li><a class="nav-link" href=" {{ url('/data')}} ">Data MCU</a></li>
+                    <li><a class="nav-link" href=" {{ url('/data')}} ">MCU Calon Karyawan</a></li>
+                    <li><a class="nav-link" href=" {{ url('/data')}} ">MCU Karyawan </a></li>
                     <li><a class="nav-link" href="index.html">Review</a></li>
                 </ul>
             </li>

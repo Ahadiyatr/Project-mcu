@@ -31,35 +31,24 @@ Route::middleware(['auth'])->group (function () {
 });
 
 // Menu MCU
-// Route::get('/data', [InsertController::class, 'index'])->name('data');
+
 Route::get('/data', [DatamcuController::class, 'index'])->name('data');
 Route::get('/create-mcu', [DatamcuController::class, 'create'])->name('create-mcu');
 Route::post('/insert-mcu', [DatamcuController::class, 'insert'])->name('insert-mcu');
-
+// Route::get('/data', [InsertController::class, 'index'])->name('data');
 
 Route::get('/show-mcu/{id}', [DatamcuController::class, 'show'])->name('show-mcu');
 Route::get('/update-mcu/{id}', [DatamcuController::class, 'update'])->name('show-mcu');
 Route::get('/detail-mcu/{id}', [DatamcuController::class, 'detail'])->name('detail-mcu');
 
-// Route::get('/data', function () {
-//     return view('mcu.data');
-// })->name('data');
-
-// Route::get('/data/input', function () {
-//     return view('mcu.input');
-// })->name('input');
-
+// Karyawan Lama
+Route::get('/', [DatamcuController::class, 'index'])->name('data');
 
 Route::get('/data/input/hasil', function () {
     return view('mcu.hasil-input');
 })->name('input.hasil');
 
-// Route::get('/detail-m', function () {
-//     return view('mcu.detail');
-// })->name('detail');
-
-
-
+// PENGGUNA
 Route::get('/pengguna', function () {
     return view('pengguna');
 })->name('pengguna');
@@ -67,6 +56,12 @@ Route::get('/pengguna', function () {
 // Menu Master
 // Data Karyawan
 Route::get('/karyawan', [DatakaryawanController::class, 'index'])->name('karyawan');
+Route::get('/tambah-karyawan', [DatakaryawanController::class, 'tambahkaryawan'])->name('tambah-karyawan');
+Route::post('/insert-karyawan', [DatakaryawanController::class, 'insert'])->name('insert-karyawan');
+
+Route::get('/show-karyawan/{id}', [DatakaryawanController::class, 'show'])->name('show-karyawan');
+Route::post('/update-karyawan/{id}', [DatakaryawanController::class, 'update'])->name('update-karyawan');
+Route::get('/delete-karyawan/{id}', [DatakaryawanController::class, 'delete'])->name('delete-karyawan');
 
 // Perusahaan
 Route::get('/perusahaan', [PerusahaanController::class, 'index'])->name('perusahaan');
@@ -76,9 +71,6 @@ Route::post('/insertperusahaan', [PerusahaanController::class, 'insertperusahaan
 Route::get('/show-perusahaan/{id}', [PerusahaanController::class, 'show'])->name('show-perusahaan');
 Route::post('/update-perusahaan/{id}', [PerusahaanController::class, 'update'])->name('update-perusahaan');
 Route::get('/delete-perusahaan/{id}', [PerusahaanController::class, 'delete'])->name('delete-perusahaan');
-// Route::get('/tambahperusahaan', function () {
-//     return view('master.tambahperusahaan');
-// })->name('tambahperusahaan');
 
 // Tempat MCU
 Route::get('/tempatmcu', [TempatmcuController::class, 'index'])->name('tempatmcu');
@@ -88,15 +80,6 @@ Route::post('/insert-tempat', [TempatmcuController::class, 'inserttempat'])->nam
 Route::get('/show-tempat/{id}', [TempatmcuController::class, 'show'])->name('show-tempat');
 Route::post('/update-tempat/{id}', [TempatmcuController::class, 'update'])->name('update-tempat');
 Route::get('/delete-tempat/{id}', [TempatmcuController::class, 'delete'])->name('delete-tempat');
-
-
-// Route::get('/tambahklinik', function () {
-//     return view('master.tambahklinik');
-// })->name('tambahklinik');
-
-
-// Route::get('/tambahjabatan', [JabatanController::class, 'tambahjabatan'])->name('tambahjabatan');
-// Route::post('/insertjabatan', [JabatanController::class, 'insertjabatan'])->name('insertjabatan');
 
 // Jabatan
 Route::get('/jabatan', [JabatanController::class, 'index'])->name('jabatan');
@@ -120,12 +103,9 @@ Route::get('/delete-departemen/{id}', [DepartemenController::class, 'delete'])->
 //     return view('master.departemen');
 // })->name('departemen');
 
-
 // Route::get('/jabatan', function () {
 //     return view('master.jabatan');
 // })->name('jabatan');
-
-
 
 // Route::get('/baru', function () {
 //     return view('dashboard.baru');
@@ -147,3 +127,19 @@ Route::get('/delete-departemen/{id}', [DepartemenController::class, 'delete'])->
 // Route::get('/reset', function () {
 //     return view('auth.reset');
 // })->name('reset');
+
+// Route::get('/data', function () {
+//     return view('mcu.data');
+// })->name('data');
+
+// Route::get('/data/input', function () {
+//     return view('mcu.input');
+// })->name('input');
+
+// Route::get('/tambahperusahaan', function () {
+//     return view('master.tambahperusahaan');
+// })->name('tambahperusahaan');
+
+// Route::get('/tambahklinik', function () {
+//     return view('master.tambahklinik');
+// })->name('tambahklinik');

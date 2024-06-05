@@ -16,12 +16,6 @@ class DatamcuController extends Controller
         return view('mcu.data',compact('data'));
     }
 
-    public function detail($id){
-        $data = Datamcu::findOrFail($id);
-        // dd($data);
-        return view('mcu.detail-mcu',compact('data'));
-    }
-
     public function create(){
         $departemen = Departemen::all();
         $jabatan = Jabatan::all();
@@ -34,13 +28,6 @@ class DatamcuController extends Controller
         return redirect()->route('data');
     }
 
-    // public function show($id){
-
-    //     $jabatan = Jabatan::find($id);
-    //     // dd($jabatan);
-    //     return view('master.jabatan-update',compact('jabatan'));
-    // }
-
     public function show($id){
         $datamcu = Datamcu::find($id);
         $departemen = Departemen::find($id);
@@ -48,5 +35,18 @@ class DatamcuController extends Controller
         // dd($datamcu->all());
         return view('mcu.update-mcu',compact('datamcu','jabatan','departemen'));
     }
+
+    public function detail($id){
+        $data = Datamcu::findOrFail($id);
+        // dd($data);
+        return view('mcu.detail-mcu',compact('data'));
+    }
+
+    // public function show($id){
+
+    //     $jabatan = Jabatan::find($id);
+    //     // dd($jabatan);
+    //     return view('master.jabatan-update',compact('jabatan'));
+    // }
 
 }

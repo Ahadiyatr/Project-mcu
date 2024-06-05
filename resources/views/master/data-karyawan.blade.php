@@ -11,7 +11,7 @@
         <h1>Data Karyawan</h1>
     </div>
     <div class="buttons">
-        <a href="{{ url('/tambahjabatan') }}" class="btn btn-primary">Tambah Data Karyawan</a>
+        <a href="{{ url('/tambah-karyawan') }}" class="btn btn-primary">Tambah Data Karyawan</a>
     </div>
     {{-- ./ Header Page--}}
 
@@ -20,7 +20,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4>Basic DataTables</h4>
+              <h4>Data Karyawan</h4>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -45,7 +45,8 @@
                         $no = 1;
                     @endphp
                     @foreach ($dt_karyawan as $karyawan)
-                        <td scope="row"> {{ $no++ }}</td>
+                    <tr>
+                        <td scope="row" class="text-center"> {{ $no++ }}</td>
                         <td scope="row"> {{$karyawan->nik_karyawan}} </td>
                         <td scope="row"> {{$karyawan->nama_karyawan}} </td>
                         <td scope="row"> {{$karyawan->perusahaan->perusahaan}} </td>
@@ -53,7 +54,10 @@
                         <td scope="row"> {{$karyawan->jabatan->jabatan}} </td>
                         <td scope="row"> {{$karyawan->tanggal_lhr}} </td>
                         <td scope="row"> {{$karyawan->jenis_kelamin}} </td>
-                        <td><a href="#" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a></td>
+                        <td>
+                            <a href="/show-karyawan/{{ $karyawan->id }}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                            <a href="/delete-karyawan/{{ $karyawan->id }}" class="btn btn-icon btn-danger"><i class="fas fa-times"></i></a>
+                        </td>
                     </tr>
                     @endforeach
                   </tbody>

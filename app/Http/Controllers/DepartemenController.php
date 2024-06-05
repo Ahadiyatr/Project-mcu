@@ -27,7 +27,7 @@ class DepartemenController extends Controller
     public function show($id){
 
         $departemen = Departemen::find($id);
-        // dd($departemen);
+        dd($departemen);
         return view('master.departemen-update',compact('departemen'));
     }
 

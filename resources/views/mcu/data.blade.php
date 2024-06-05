@@ -32,7 +32,7 @@
                                   <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
                                 </div>
                               </th>
-                              <th>#</th>
+                              <th>NO</th>
                               <th>No MCU</th>
                               <th>Nama</th>
                               <th>NIK</th>
@@ -75,9 +75,7 @@
                                 <td><a href="/show-mcu/{{ $mcu->id}}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a></td>
                               </tr>
                             @endforeach
-
                             {{--  --}}
-
                           </tbody>
                         </table>
                       </div>
