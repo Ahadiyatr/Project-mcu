@@ -20,6 +20,27 @@
         <div class="row justify-content-center">
           <div class="col-7">
             <div class="card">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
               <form action="/insert-karyawan" method="POST">
                 @csrf
                 <div class="card-header">
@@ -29,11 +50,11 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>NIK Karyawan</label>
-                        <input type="number" name='nik_karyawan' class="form-control" required="">
+                        <input type="number" name='nik' class="form-control" required="" onkeyup="limit(8);">
                     </div>
                     <div class="form-group">
                         <label>Nama Karyawan</label>
-                        <input type="text" name='nama_karyawan' class="form-control" required="">
+                        <input type="text" name='nama' class="form-control" required="">
                     </div>
                     <div class="form-group">
                         <label>Perusahaan</label>
@@ -65,17 +86,17 @@
                     <div class="form-group">
                         <label class="d-block">Jenis Kelamin</label>
                         <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="jenis_kelamin" value="Laki-laki" id="jenis_kelamin">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" value="L" id="jenis_kelamin">
                             <label class="form-check-label" for="Laki-laki">Laki-laki</label>
                         </div>
                         <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="jenis_kelamin" value="Perempuan" id="jenis_kelamin">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" value="P" id="jenis_kelamin">
                             <label class="form-check-label" for="Perempuan">Perempuan</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Tanggal Lahir</label>
-                        <input type="text" class="form-control datepicker" name="tanggal_lhr">
+                        <input type="text" class="form-control datepicker" name="tanggal_lahir">
                     </div>
                 </div>
 

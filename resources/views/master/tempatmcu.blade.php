@@ -10,15 +10,15 @@
     <div class="section-header">
         <h1>Data Tempat MCU</h1>
     </div>
-    <div class="buttons">
-        <a href="{{ url('/tambahtempat') }}" class="btn btn-primary">Tambah Data Tempat MCU</a>
-    </div>
     {{-- ./ Header Page--}}
 
     {{-- Section Body --}}
     <div class="section-body">
         <div class="row justify-content-center">
           <div class="col-8">
+            <div class="buttons">
+                <a href="{{ url('/tambahtempat') }}" class="btn btn-primary">Tambah Data Tempat MCU</a>
+            </div>
             <div class="card">
                 {{-- @if ($message = Session::get('success'))
                     <div class="alert alert-success">

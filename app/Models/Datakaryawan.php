@@ -9,18 +9,22 @@ class Datakaryawan extends Model
 {
     use HasFactory;
 
-    protected $table = "dt_karyawan";
-    protected $fillable =
-    [
-    'id',
-    'nik_karyawan',
-    'nama_karyawan',
-    'perusahaan_id',
-    'departemen_id',
-    'jabatan_id',
-    'jenis_kelamin',
-    'tanggal_lhr'
+    protected $table = 'karyawan';
+    protected $primaryKey = "id";
+    protected $fillable =[
+        'id',
+        'nik',
+        'nama',
+        'perusahaan_id',
+        'departemen_id',
+        'jabatan_id',
+        'jenis_kelamin',
+        'tanggal_lahir'
     ];
+
+    public function datamcu(){
+        return $this->hasMany(Datamcu::class, 'karyawan_id');
+    }
 
     public function departemen(){
         return $this->belongsTo(Departemen::class);
@@ -33,4 +37,12 @@ class Datakaryawan extends Model
     public function perusahaan(){
         return $this->belongsTo(Perusahaan::class);
     }
+
+
+    protected $guarded = [];
+
+    // public function datamcu(){
+    //     return $this->hasMany(datamcu::class);
+    // }
+
 }

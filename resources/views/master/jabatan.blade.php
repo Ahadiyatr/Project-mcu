@@ -10,16 +10,17 @@
     <div class="section-header">
         <h1>Data Jabatan</h1>
     </div>
-    <div class="buttons">
-        <a href="{{ url('/tambahjabatan') }}" class="btn btn-primary">Tambah Data</a>
-    </div>
+
     {{-- ./ Header Page--}}
 
     {{-- Section Body --}}
     <div class="section-body">
 
         <div class="row justify-content-center">
-          <div class="col-8">
+            <div class="col-8">
+                <div class="buttons">
+                    <a href="{{ url('/tambahjabatan') }}" class="btn btn-primary">Tambah Data</a>
+                </div>
             <div class="card">
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
@@ -27,7 +28,7 @@
                     </div>
                 @endif
               <div class="card-header">
-                <h4>Simple Table</h4>
+                <h4>Tabel Jabatan</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">

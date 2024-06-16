@@ -13,6 +13,10 @@ class Tempatmcu extends Model
     protected $primaryKey = "id";
     protected $fillable = ['id','tempat'];
 
+    public function datamcu(){
+        return $this->hasMany(Datamcu::class, 'tmptmcu_id');
+    }
+
     // public function datakaryawan(){
     //     return $this->hasMany(datakaryawan::class);
     // }

@@ -63,6 +63,38 @@
   </div>
 
   <!-- General JS Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript">
+    $(function {
+        $(document).on('click', '#delete', function(e){
+            e.prevenDefault();
+            var link = $(this).attr("href");
+
+            Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                Swal.fire({
+                  title: "Deleted!",
+                  text: "Your file has been deleted.",
+                  icon: "success"
+                });
+              }
+            });
+
+        }); //
+
+    });
+  </script>
+
+  <!-- General JS Scripts -->
   <script src="{{ asset('assets/modules/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/modules/popper.js') }}"></script>
   <script src="{{ asset('assets/modules/tooltip.js') }}"></script>

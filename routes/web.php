@@ -42,7 +42,7 @@ Route::get('/update-mcu/{id}', [DatamcuController::class, 'update'])->name('show
 Route::get('/detail-mcu/{id}', [DatamcuController::class, 'detail'])->name('detail-mcu');
 
 // Karyawan Lama
-Route::get('/', [DatamcuController::class, 'index'])->name('data');
+// Route::get('/', [DatamcuController::class, 'index'])->name('data');
 
 Route::get('/data/input/hasil', function () {
     return view('mcu.hasil-input');

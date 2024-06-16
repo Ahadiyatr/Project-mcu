@@ -20,7 +20,7 @@
         <div class="row justify-content-center">
           <div class="col-7">
             <div class="card">
-              <form action="/update-karyawan/{{ $dt_karyawan->id}}" method="POST">
+              <form action="/update-karyawan/{{ $karyawan->id}}" method="POST">
                 @csrf
                 <div class="card-header">
                   <h4>Edit Data Karyawan Baru</h4>
@@ -29,17 +29,17 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>NIK Karyawan</label>
-                        <input type="number" name='nik_karyawan' class="form-control" required="" value="{{ $dt_karyawan->nik_karyawan }}">
+                        <input type="number" name='nik' class="form-control" required="" value="{{ $karyawan->nik }}">
                     </div>
                     <div class="form-group">
                         <label>Nama Karyawan</label>
-                        <input type="text" name='nama_karyawan' class="form-control" required="" value="{{ $dt_karyawan->nama_karyawan }}">
+                        <input type="text" name='nama' class="form-control" required="" value="{{ $karyawan->nama }}">
                     </div>
                     <div class="form-group">
                         <label>Perusahaan</label>
                         <select class="form-control select2" name="perusahaan_id" id="perusahaan_id">
                             <option disabled value=""> - Pilih Perusahaan - </option>
-                            <option value="{{ $dt_karyawan->perusahaan_id }}">{{$dt_karyawan->perusahaan->perusahaan}}</option>
+                            <option value="{{ $karyawan->perusahaan_id }}">{{$karyawan->perusahaan->perusahaan}}</option>
 
                             @foreach ($perusahaan as $pt)
                             <option value="{{ $pt->id }}"> {{ $pt->perusahaan}} </option>
@@ -50,7 +50,7 @@
                         <label>Departemen</label>
                         <select name="departemen_id" id="departemen_id" class="form-control select2">
                             <option disabled value> - Pilih Departemen - </option>
-                            <option value="{{ $dt_karyawan->departemen_id }}">{{$dt_karyawan->departemen->departemen}}</option>
+                            <option value="{{ $karyawan->departemen_id }}">{{$karyawan->departemen->departemen}}</option>
                             @foreach ($departemen as $dept)
                             <option value="{{ $dept->id}}"> {{ $dept->departemen}} </option>
                             @endforeach
@@ -60,7 +60,7 @@
                         <label>Jabatan</label>
                         <select name="jabatan_id" id="jabatan_id" class="form-control select2">
                             <option disabled value> - Pilih - </option>
-                            <option value="{{ $dt_karyawan->jabatan_id }}">{{$dt_karyawan->jabatan->jabatan}}</option>
+                            <option value="{{ $karyawan->jabatan_id }}">{{$karyawan->jabatan->jabatan}}</option>
                             @foreach ($jabatan as $jab)
                             <option value="{{ $jab->id}}"> {{ $jab->jabatan}} </option>
                             @endforeach
@@ -79,7 +79,7 @@
                     </div>
                     <div class="form-group">
                         <label>Tanggal Lahir</label>
-                        <input type="text" class="form-control datepicker" name="tanggal_lhr" value="{{ $dt_karyawan->tanggal_lhr }}">
+                        <input type="text" class="form-control datepicker" name="tanggal_lahir" value="{{ $karyawan->tanggal_lahir }}">
                     </div>
                 </div>
 

@@ -20,7 +20,7 @@ class JabatanController extends Controller
     public function insertjabatan(Request $request){
         // dd($request->all());
         Jabatan::create($request->all());
-        return redirect()->route('jabatan');
+        return redirect()->route('jabatan')->with('success',' Data Berhasil Di Edit');
     }
 
     public function show($id){

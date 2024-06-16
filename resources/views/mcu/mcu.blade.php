@@ -11,7 +11,7 @@
         <h1>Data MCU</h1>
     </div>
     <div class="buttons">
-        <a href="/create-mcu" class="btn btn-primary">Tambah Data MCU Karyawan</a>
+        <a href="/create-mcu" class="btn btn-primary">Tambah Data Karyawan</a>
     </div>
     {{-- ./ Header Page--}}
 
@@ -46,23 +46,21 @@
                     @php
                         $no = 1;
                     @endphp
-                    <pre>{{ print_r($mcu_data->toArray('karyawan_id'), true) }}</pre>
-                    @foreach ($mcu_data as $item)
+                    @foreach ($data as $mcu)
                     <tr>
                         <td scope="row"> {{ $no++ }}</td>
-                        <td scope='row'> {{ $item->no_mcu }} </td>
-                        <td scope='row'> {{ $item->no_mcu }} </td>
-                        <td scope='row'> {{ $item->karyawan_id }}</td>
-                        <td scope='row'> {{ $item->karyawan_id }} </td>
-                        <td scope='row'> {{ $item->karyawan_id }}</td>
-                        <td scope='row'> {{ $item->karyawan_id }}</td>
-                        <td scope='row'> {{ $item->karyawan_id }}</td>
-                        <td scope='row'> {{ $item->tanggal_mcu }}</td>
+                        <td scope='row'> {{ $mcu->no_mcu }} </td>
+                        <td scope='row'> {{ $mcu->nama_karyawan }}</td>
+                        <td scope='row'> {{ $mcu->dt_karyawan_id }}</td>
+                        <td scope='row'> {{ $mcu->perusahaan }}</td>
+                        <td scope='row'> {{ $mcu->departemen->departemen }}</td>
+                        <td scope='row'> {{ $mcu->jabatan->jabatan }}</td>
+                        <td scope='row'> {{ $mcu->jenis_kelamin }}</td>
+                        <td scope='row'> {{ $mcu->tanggal_mcu }}</td>
                         <td><div class="badge badge-success">FIT TO WORK</div></td>
                         <td>
-                            {{-- <a href="/detail-mcu/{{ $item->id }}" class="btn btn-secondary">Detail</a> --}}
-                            <a href="/detail-mcu/{{ $item->id }}" class="btn btn-icon btn-info"><i class="fas fa-info-circle"></i></a>
-                            <a href="/show-mcu/{{ $item->id}}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                            <a href="/detail-mcu/{{ $mcu->id }}" class="btn btn-secondary">Detail</a>
+                            <a href="/show-mcu/{{ $mcu->id}}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
                         </td>
                     </tr>
                     @endforeach

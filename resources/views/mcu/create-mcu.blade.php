@@ -33,86 +33,30 @@
                 <div class="card-body">
                     <form action="/insert-mcu" method="POST">
                         @csrf
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>No MCU</label>
                             <input type="text" class="form-control is-valid" id="no_mcu" name="no_mcu">
                             <div class="valid-feedback"></div>
-                        </div>
-                        <div class="form-group">
-                            <label>Nama Karyawan</label>
-                            <input type="text" class="form-control is-valid" id="nama_karyawan" name="nama_karyawan">
-                            <div class="valid-feedback"></div>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label>NIK</label>
-                            <input type="text" class="form-control is-valid" id="nik_karyawan" name="nik_karyawan" >
-                            <div class="valid-feedback"></div>
-                        </div>
-                        <div class="form-group">
-                            <label>Departemen</label>
-                            <select name="departemen_id" id="departemen_id" class="form-control select2">
+                            <select name="karyawan_id" id="karyawan_id" class="form-control select2">
                                 <option value=""> - Pilih - </option>
-                                @foreach ($departemen as $dept)
-                                <option value="{{ $dept->id}}"> {{ $dept->departemen}} </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Jabatan</label>
-                            <select name="jabatan_id" id="jabatan_id" class="form-control select2">
-                                <option value=""> - Pilih - </option>
-                                @foreach ($jabatan as $jab)
-                                <option value="{{ $jab->id}}"> {{ $jab->jabatan}} </option>
+                                @foreach ($karyawan as $kar)
+                                <option value="{{ $kar->id}}"> {{ $kar->nik}} - {{ $kar->nama}} </option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Tempat MCU</label>
-                            <input type="text" class="form-control is-valid" id="tempat_mcu" name="tempat_mcu">
-                            <div class="valid-feedback"></div>
+                            <select name="tmptmcu_id" id="tmptmcu_id" class="form-control select2">
+                                <option value=""> - Pilih - </option>
+                                @foreach ($tmptmcu as $tempat)
+                                <option value="{{ $tempat->id}}"> {{ $tempat->tempat}} </option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div class="form-group">
-                            <label class="d-block">Jenis Kelamin</label>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Laki-laki" id="jenis_kelamin">
-                                <label class="form-check-label" for="Laki-laki">Laki-laki</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Perempuan" id="jenis_kelamin">
-                                <label class="form-check-label" for="Perempuan">Perempuan</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Umur</label>
-                            <input type="number" class="form-control is-valid" name="umur">
-                            <div class="valid-feedback"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="d-block">Perusahaan</label>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="perusahaan" value="PT. PPA" id="perusahaan">
-                                <label class="form-check-label" for="exampleRadios1">PT. PPA</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="perusahaan" value="PT. AMM" id="perusahaan">
-                                <label class="form-check-label" for="exampleRadios2">PT. AMM</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="d-block">Status Medical Check-Up</label>
-                            <div class="form-check-inline">
-                                <input  class="form-check-iput" type="radio" name="status_mcu" value="Calon Karyawan" id="status_mcu">
-                                <label class="form-check-label" for="status_mcu"> Calon Karyawan</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input  class="form-check-input" type="radio" name="status_mcu" value="Mutasi" id="status_mcu">
-                                <label class="form-check-label" for="status_mcu">Mutasi</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="status_mcu" value="Annual" id="status_mcu">
-                                <label class="form-check-label" for="status_mcu">Annnual</label>
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <label>Tanggal MCU</label>
                             <input type="text" class="form-control datepicker" name="tanggal_mcu">
@@ -155,7 +99,7 @@
                     </div>
                     <div class="form-group">
                         <label>BMI 0.</label>
-                        <input type="text" class="form-control is-valid" name="bmi">
+                        <input type="decimal" class="form-control is-valid" name="bmi">
                         <div class="valid-feedback"></div>
                     </div>
                     {{-- Pemeriksaab Lab --}}
@@ -261,172 +205,7 @@
                           </div>
                       </div>
                     {{-- Pemeriksaan Fisik --}}
-                    <div class="card-header">
-                        <h4>Pemeriksaan Fisik</h4>
-                    </div>
-                    <div class="form-group">
-                        <label class="d-block">Mata</label>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="mata" value="Miopia" id="mata">
-                            <label class="form-check-label" for="mata">MIOPIA</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="mata" value="Ptregium" id="mata">
-                            <label class="form-check-label" for="mata">PTREGIUM</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="mata" value="Normal" id="mata">
-                            <label class="form-check-label" for="mata">NORMAL</label>
-                        </div>
-                          <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="mata" value="Katarak" id="mata">
-                            <label class="form-check-label" for="mata">KATARAK</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="mata" value="Strabismus" id="mata">
-                            <label class="form-check-label" for="mata">STRABISMUS</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="d-block">Gigi dan Mulut</label>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="gigimulut" value="Normal" id="gigimulut">
-                            <label class="form-check-label" for="gigimulut">NORMAL</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="gigimulut" value="Cariess" id="gigimulut">
-                            <label class="form-check-label" for="gigimulut">CARIESS</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="gigimulut" value="Gigi Berlubang" id="gigimulut">
-                            <label class="form-check-label" for="gigimulut">GIGI BERLUBANG</label>
-                        </div>
-                          <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="gigimulut" value="Cariess dan Gigi Berlubang" id="gigimulut">
-                            <label class="form-check-label" for="gigimulut">CARIESS DAN GIGI BERLUBANG</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="d-block">Telinga</label>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="telinga" value="Normal" id="telinga">
-                            <label class="form-check-label" for="telinga">NORMAL</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="telinga" value="Abnormal" id="telinga">
-                            <label class="form-check-label" for="telinga">ABNORMAL</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="telinga" value="Bronchitis" id="telinga">
-                            <label class="form-check-label" for="telinga">BRONCHITIS</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="d-block">Hemoroid</label>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="hemoroid" value="Grade 1" id="hemoroid">
-                            <label class="form-check-label" for="hemoroid">GRADE 1</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="hemoroid" value="Grade 2" id="hemoroid">
-                            <label class="form-check-label" for="hemoroid">GRADE 2</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="hemoroid" value="Grade 3" id="hemoroid">
-                            <label class="form-check-label" for="hemoroid">GRADE 3</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="hemoroid" value="Menolak RT" id="hemoroid">
-                            <label class="form-check-label" for="hemoroid">MENOLAK RT</label>
-                        </div>
-                        <div class="form-group">
-                            <label>Abnormal Lainnya</label>
-                            <input type="text" class="form-control is-valid" name="ablain">
-                            <div class="valid-feedback"></div>
-                        </div>
-                    </div>
 
-                    {{-- ./Fisik --}}
-                    {{-- Pemeriksaan Penunjang --}}
-                    <div class="card-header">
-                        <h4>Pemeriksaan Penunjang</h4>
-                    </div>
-                    <div class="form-group">
-                        <label class="d-block">Spirometry Obstruksi</label>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="spiro_o" value="Normal" id="spiro_o">
-                            <label class="form-check-label" for="spiro_o">NORMAL</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="spiro_o" value="Ringan" id="spiro_o">
-                            <label class="form-check-label" for="spiro_o">RINGAN</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="spiro_o" value="Sedang" id="spiro_o">
-                            <label class="form-check-label" for="spiro_o">SEDANG</label>
-                        </div>
-                          <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="spiro_o" value="Berat" id="spiro_o">
-                            <label class="form-check-label" for="spiro_o">BERAT</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="d-block">Spirometry Restriksi</label>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="spiro_r" value="Normal" id="spiro_r">
-                            <label class="form-check-label" for="spiro_r">NORMAL</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="spiro_r" value="Cariess" id="spiro_r">
-                            <label class="form-check-label" for="spiro_r">CARIESS</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="spiro_r" value="Gigi Berlubang" id="spiro_r">
-                            <label class="form-check-label" for="spiro_r">GIGI BERLUBANG</label>
-                        </div>
-                          <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="spiro_r" value="Cariess dan Gigi Berlubang" id="spiro_r">
-                            <label class="form-check-label" for="spiro_r">CARIESS DAN GIGI BERLUBANG</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="d-block">Audiometry Kanan</label>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="audi_kanan" value="Normal" id="audi_kanan">
-                            <label class="form-check-label" for="audi_kanan">NORMAL</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="audi_kanan" value="Gangguan Pendengaran Ringan" id="audi_kanan">
-                            <label class="form-check-label" for="audi_kanan">GANGGUAN PENDENGARAN RINGAN</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="audi_kanan" value="Gangguan Pendengaran Sedang" id="audi_kanan">
-                            <label class="form-check-label" for="audi_kanan">GANGGUAN PENDENGARAN SEDANG</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="audi_kanan" value="Gangguan Pendengaran Berat" id="audi_kanan">
-                            <label class="form-check-label" for="audi_kanan">GANGGUAN PENDENGARAN BERAT</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="d-block">Audiometry KIRI</label>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="audi_kiri" value=" Normal" id="audi_kiri">
-                            <label class="form-check-label" for="audi_kiri">NORMAL</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="audi_kiri" value="Gangguan Pendengaran Ringan" id="audi_kiri">
-                            <label class="form-check-label" for="audi_kiri">GANGGUAN PENDENGARAN RINGAN</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="audi_kiri" value="Gangguan Pendengaran sedang" id="audi_kiri">
-                            <label class="form-check-label" for="audi_kiri">GANGGUAN PENDENGARAN SEDANG</label>
-                        </div>
-                          <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="audi_kiri" value="Gangguan Pendengaran Berat" id="audi_kiri">
-                            <label class="form-check-label" for="audi_kiri">GANGGUAN PENDENGARAN BERAT</label>
-                        </div>
-                    </div>
                     {{-- END --}}
                 </div>
                 {{-- ./card body --}}
@@ -434,6 +213,20 @@
                   <button class="btn btn-primary">Submit</button>
                 </div>
               </form>
+
+              {{-- coba --}}
+              @if (isset($diagnosis))
+                <div class="mt-5">
+                    <h3>Diagnosis Results</h3>
+                    <ul class="list-group">
+                        @foreach ($diagnosis as $result)
+                            <li class="list-group-item">{{ $result }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+              @endif
+              {{-- ./coba --}}
+
             </div>
           </div>
 

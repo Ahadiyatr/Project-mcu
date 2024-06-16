@@ -9,20 +9,14 @@ class Datamcu extends Model
 {
     use HasFactory;
 
-    protected $table = 'datamcu';
+    protected $table = 'mcu_data';
     protected $primaryKey = "id";
     protected $fillable = [
         'id',
         'no_mcu',
-        'nama_karyawan',
-        'nik_karyawan',
-        'perusahaan',
-        'departemen_id',
-        'jabatan_id',
-        'jenis_kelamin',
-        'umur',
+        'karyawan_id',
+        'tmptmcu_id',
         'tempat_mcu',
-        'status_mcu',
         'tanggal_mcu',
         'sistole',
         'diastole',
@@ -56,11 +50,24 @@ class Datamcu extends Model
         'update_at'
     ];
 
-    public function departemen(){
-        return $this->belongsTo(Departemen::class);
+    // Definisikan relasi ke model Datkaryawan
+    public function datakaryawan()
+    {
+        return $this->belongsTo(Datakaryawan::class, 'karyawan_id');
     }
 
-    public function jabatan(){
-        return $this->belongsTo(Jabatan::class);
+    public function tempatmcu()
+    {
+        return $this->belongsTo(Tempatmcu::class, 'tmptmcu_id');
     }
+
+    // public function departemen(){
+    //     return $this->belongsTo(Departemen::class);
+    // }
+
+    // public function jabatan(){
+    //     return $this->belongsTo(Jabatan::class);
+    // }
+
+    protected $guarded = [];
 }

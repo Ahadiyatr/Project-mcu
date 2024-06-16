@@ -10,9 +10,6 @@
     <div class="section-header">
         <h1>Data Departemen</h1>
     </div>
-    <div class="buttons">
-        <a href="{{ url('/tambahdepartemen') }}" class="btn btn-primary">Tambah Data</a>
-    </div>
     {{-- ./ Header Page--}}
 
     {{-- Section Body --}}
@@ -20,6 +17,9 @@
 
         <div class="row justify-content-center">
           <div class="col-8">
+            <div class="buttons">
+                <a href="{{ url('/tambahdepartemen') }}" class="btn btn-primary">Tambah Data</a>
+            </div>
             <div class="card">
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
@@ -27,7 +27,7 @@
                     </div>
                 @endif
               <div class="card-header">
-                <h4>Simple Table</h4>
+                <h4>Tabel Departemen</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -46,7 +46,6 @@
                           <td scope="row"> {{ $no++ }} </td>
                           <td> {{ $dept->departemen }} </td>
                           <td>
-                            <a href="#" class="btn btn-secondary">Detail</a>
                             <a href="/show-departemen/{{ $dept->id }}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
                             <a href="/delete-departemen/{{ $dept->id }}" class="btn btn-icon btn-danger"><i class="fas fa-times"></i></a>
                         </td>

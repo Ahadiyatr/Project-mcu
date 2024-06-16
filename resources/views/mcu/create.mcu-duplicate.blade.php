@@ -10,7 +10,7 @@
 
     <section class="section">
       <div class="section-header">
-        <h1>Input Data MCU</h1>
+        <h1>Input Data MCU PPA</h1>
         <div class="section-header-breadcrumb">
           <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
           <div class="breadcrumb-item"><a href="#">MCU</a></div>
@@ -31,88 +31,32 @@
 
                 {{-- card body --}}
                 <div class="card-body">
-                    <form action="#" method="POST">
+                    <form action="/insert-mcu" method="POST">
                         @csrf
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>No MCU</label>
-                            <input type="text" class="form-control is-valid" id="no_mcu" name="no_mcu" value="{{ $datamcu->no_mcu }}">
+                            <input type="text" class="form-control is-valid" id="no_mcu" name="no_mcu">
                             <div class="valid-feedback"></div>
-                        </div>
-                        <div class="form-group">
-                            <label>Nama Karyawan</label>
-                            <input type="text" class="form-control is-valid" id="nama_karyawan" name="nama_karyawan" value="{{ $datamcu->nama_karyawan }}">
-                            <div class="valid-feedback"></div>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label>NIK</label>
-                            <input type="text" class="form-control is-valid" id="nik_karyawan" name="nik_karyawan" value="{{ $datamcu->nik_karyawan }}">
-                            <div class="valid-feedback"></div>
-                        </div>
-                        {{-- <div class="form-group">
-                            <label>Departemen</label>
-                            <select name="departemen_id" id="departemen_id" class="form-control select2">
+                            <select name="karyawan_id" id="karyawan_id" class="form-control select2">
                                 <option value=""> - Pilih - </option>
-                                @foreach ($departemen as $dept)
-                                <option value="{{ $dept->id}}"> {{ $dept->departemen}} </option>
+                                @foreach ($karyawan as $kar)
+                                <option value="{{ $kar->id}}"> {{ $kar->nik}} - {{ $kar->nama}} </option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>Jabatan</label>
-                            <select name="jabatan_id" id="jabatan_id" class="form-control select2">
-                                <option value=""> - Pilih - </option>
-                                @foreach ($jabatan as $jab)
-                                <option value="{{ $jab->id}}"> {{ $jab->jabatan}} </option>
-                                @endforeach
-                            </select>
-                        </div> --}}
                         <div class="form-group">
                             <label>Tempat MCU</label>
-                            <input type="text" class="form-control is-valid" id="tempat_mcu" name="tempat_mcu" value="{{ $datamcu->tempat_mcu }}">
-                            <div class="valid-feedback"></div>
+                            <select name="tmptmcu_id" id="tmptmcu_id" class="form-control select2">
+                                <option value=""> - Pilih - </option>
+                                @foreach ($tmptmcu as $tempat)
+                                <option value="{{ $tempat->id}}"> {{ $tempat->tempat}} </option>
+                                @endforeach
+                            </select>
                         </div>
-                        {{-- <div class="form-group">
-                            <label class="d-block">Jenis Kelamin</label>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Laki-laki" id="jenis_kelamin">
-                                <label class="form-check-label" for="Laki-laki">Laki-laki</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Perempuan" id="jenis_kelamin">
-                                <label class="form-check-label" for="Perempuan">Perempuan</label>
-                            </div>
-                        </div> --}}
-                        <div class="form-group">
-                            <label>Umur</label>
-                            <input type="number" class="form-control is-valid" name="umur" id="umur" value="{{ $datamcu->umur }}">
-                            <div class="valid-feedback"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="d-block">Perusahaan</label>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="perusahaan" value="PT. PPA" id="perusahaan">
-                                <label class="form-check-label" for="exampleRadios1">PT. PPA</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="perusahaan" value="PT. AMM" id="perusahaan">
-                                <label class="form-check-label" for="exampleRadios2">PT. AMM</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="d-block">Status Medical Check-Up</label>
-                            <div class="form-check-inline">
-                                <input  class="form-check-iput" type="radio" name="status_mcu" value="Calon Karyawan" id="status_mcu">
-                                <label class="form-check-label" for="status_mcu"> Calon Karyawan</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input  class="form-check-input" type="radio" name="status_mcu" value="Mutasi" id="status_mcu">
-                                <label class="form-check-label" for="status_mcu">Mutasi</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="status_mcu" value="Annual" id="status_mcu">
-                                <label class="form-check-label" for="status_mcu">Annnual</label>
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <label>Tanggal MCU</label>
                             <input type="text" class="form-control datepicker" name="tanggal_mcu">
@@ -126,36 +70,36 @@
                     </div>
                     <div class="form-group">
                         <label>Sistole</label>
-                        <input type="number" class="form-control is-valid" name="sistole" value="{{ $datamcu->sistole }}">
+                        <input type="number" class="form-control is-valid" name="sistole">
                         <div class="valid-feedback">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Diastole</label>
-                        <input type="number" class="form-control is-valid" name="diastole" value="{{ $datamcu->diastole }}">
+                        <input type="number" class="form-control is-valid" name="diastole">
                         <div class="valid-feedback">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Nadi</label>
-                        <input type="number" class="form-control is-valid" name="nadi" value="{{ $datamcu->nadi }}">
+                        <input type="number" class="form-control is-valid" name="nadi">
                         <div class="valid-feedback">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Tinggi Badan</label>
-                        <input type="number" class="form-control is-valid" name="tb" value="{{ $datamcu->tb }}">
+                        <input type="number" class="form-control is-valid" name="tb">
                         <div class="valid-feedback">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Berat Badan</label>
-                        <input type="number" class="form-control is-valid" name="bb" value="{{ $datamcu->bb }}">
+                        <input type="number" class="form-control is-valid" name="bb">
                         <div class="valid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label>BMI 0.</label>
-                        <input type="text" class="form-control is-valid" name="bmi" value="{{ $datamcu->bmi }}">
+                        <input type="text" class="form-control is-valid" name="bmi">
                         <div class="valid-feedback"></div>
                     </div>
                     {{-- Pemeriksaab Lab --}}
@@ -164,52 +108,52 @@
                     </div>
                     <div class="form-group">
                           <label>Hemoglobin 0.</label>
-                          <input type="decimal" class="form-control is-valid" name="hb" value="{{ $datamcu->hb }}">
+                          <input type="decimal" class="form-control is-valid" name="hb">
                           <div class="valid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label>Colestrol</label>
-                        <input type="number" class="form-control is-valid" name="cl" value="{{ $datamcu->cl }}">
+                        <input type="number" class="form-control is-valid" name="cl">
                         <div class="valid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label>Triliserida</label>
-                        <input type="number" class="form-control is-valid" name="trig" value="{{ $datamcu->trig }}">
+                        <input type="number" class="form-control is-valid" name="trig">
                         <div class="valid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label>Gula Darah Puasa</label>
-                        <input type="number" class="form-control is-valid"  name="gdp" value="{{ $datamcu->gdp }}">
+                        <input type="number" class="form-control is-valid"  name="gdp">
                         <div class="valid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label>Asam Urat 0.</label>
-                        <input type="decimal" class="form-control is-valid" name="au" value=" {{ $datamcu->au }}">
+                        <input type="decimal" class="form-control is-valid" name="au">
                         <div class="valid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label>Ur</label>
-                        <input type="number" class="form-control is-valid" name="ur" value="{{ $datamcu->ur }}">
+                        <input type="number" class="form-control is-valid" name="ur">
                         <div class="valid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label>Creatinin 0.</label>
-                        <input name="cre" type="decimal" class="form-control is-valid" value="{{ $datamcu->cre }}">
+                        <input name="cre" type="decimal" class="form-control is-valid">
                         <div class="valid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label>SGOT</label>
-                        <input name="sgot" type="number" class="form-control is-valid" value="{{ $datamcu->sgot }}">
+                        <input name="sgot" type="number" class="form-control is-valid">
                         <div class="valid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label>SGPT</label>
-                        <input name="sgpt" type="number" class="form-control is-valid" value="{{ $datamcu->sgpt }}">
+                        <input name="sgpt" type="number" class="form-control is-valid">
                         <div class="valid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label>Abnormal Lab</label>
-                        <input name="ablab" type="text" class="form-control is-valid" value="{{ $datamcu->ablab }}">
+                        <input name="ablab" type="text" class="form-control is-valid">
                         <div class="valid-feedback"></div>
                     </div>
                     <div class="form-group">
@@ -341,7 +285,7 @@
                         </div>
                         <div class="form-group">
                             <label>Abnormal Lainnya</label>
-                            <input type="text" class="form-control is-valid" name="ablain" value="{{ $datamcu->ablain }}">
+                            <input type="text" class="form-control is-valid" name="ablain">
                             <div class="valid-feedback"></div>
                         </div>
                     </div>
@@ -377,16 +321,16 @@
                             <label class="form-check-label" for="spiro_r">NORMAL</label>
                         </div>
                         <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="spiro_r" value="Cariess" id="spiro_r">
-                            <label class="form-check-label" for="spiro_r">CARIESS</label>
+                            <input class="form-check-input" type="radio" name="spiro_r" value="Ringan" id="spiro_r">
+                            <label class="form-check-label" for="spiro_r">RINGAN </label>
                         </div>
                         <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="spiro_r" value="Gigi Berlubang" id="spiro_r">
-                            <label class="form-check-label" for="spiro_r">GIGI BERLUBANG</label>
+                            <input class="form-check-input" type="radio" name="spiro_r" value="Sedang" id="spiro_r">
+                            <label class="form-check-label" for="spiro_r">SEDANG</label>
                         </div>
                           <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="spiro_r" value="Cariess dan Gigi Berlubang" id="spiro_r">
-                            <label class="form-check-label" for="spiro_r">CARIESS DAN GIGI BERLUBANG</label>
+                            <input class="form-check-input" type="radio" name="spiro_r" value="Berat" id="spiro_r">
+                            <label class="form-check-label" for="spiro_r">BERAT</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -434,6 +378,20 @@
                   <button class="btn btn-primary">Submit</button>
                 </div>
               </form>
+
+              {{-- coba --}}
+              @if (isset($diagnosis))
+                <div class="mt-5">
+                    <h3>Diagnosis Results</h3>
+                    <ul class="list-group">
+                        @foreach ($diagnosis as $result)
+                            <li class="list-group-item">{{ $result }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+              @endif
+              {{-- ./coba --}}
+
             </div>
           </div>
 
